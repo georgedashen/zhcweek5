@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="Zhuoyang Chen" />
+
+
+<title>zhcweek5</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">zhcweek5</h1>
+<h4 class="author">Zhuoyang Chen</h4>
+<h4 class="date">February 7, 2020</h4>
+
+
+
+<div id="this-package-is-a-practice-of-angds-week5-assignment" class="section level2">
+<h2>This package is a practice of ANGDS Week5 assignment</h2>
+<p>There is only one function <strong>reading_in</strong> in this package.</p>
+<div id="reading-in" class="section level3">
+<h3>Reading in</h3>
+<p>Function for parsing the text output of FastQC. It extracts the values for a specific test run by FastQC on asingle fastq file. ####usage<br />
+reading_in(file=&lt;fastq_data.txt&gt;, sample = <phenotype accession#>, test = <test_type>)</p>
+<div id="arguments" class="section level4">
+<h4>arguments</h4>
+<div id="input" class="section level5">
+<h5>Input:</h5>
+<p>file: string that specifies the path to an individual FastQC result file (tyically named “fastqc_data.txt) sample: A sample name that would be specified by user test: Indicate which test results should be extracted. Default:”Per base sequence quality“. Other options are, for example,”Pertile sequence quality“,”Per sequence quality score&quot; etc.</p>
+</div>
+<div id="output" class="section level5">
+<h5>output:</h5>
+<p>dat: data.frame with the values of a single FastQC test result.</p>
+</div>
+</div>
+<div id="examples" class="section level4">
+<h4>examples</h4>
+<p>res &lt;- reading_in(file = “acinar-3_S9_L001_R1_001_fastqc/fastqc_data.txt”)</p>
+</div>
+<div id="code-explanation" class="section level4">
+<h4>Code Explanation</h4>
+<p><strong>syscommand</strong> is to generate the command that used by your computer system to pre-process the data file you provide.</p>
+<div id="paste0" class="section level5">
+<h5>paste0</h5>
+<p>Paste string without any sapce.</p>
+</div>
+<div id="sed" class="section level5">
+<h5>sed</h5>
+<p>The first section before ‘|’ is to select a range of lines according to given patterns. In the code, it select lines from the line that contains “Per base sequence quality” to the line that first meets “END_MODULE”. Then the section after ‘|’ is to remove lines that start with symbol “&gt;&gt;”, which are actually the first and the last line.</p>
+</div>
+</div>
+</div>
+<div id="ggplot2-on-data-df" class="section level3">
+<h3>ggplot2 on data df</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>()</code></pre></div>
+<pre><code>## [1] &quot;C:/Users/Chenzhuoyang/Desktop/Cornell file/ANGSD/zhcweek5/vignettes&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&quot;../zhcweek5.tar.gz&quot;)</span>
+<span class="co">#use zhcweek5::df</span>
+<span class="kw">library</span>(zhcweek5)
+<span class="kw">library</span>(ggplot2)
+dat &lt;-<span class="st"> </span>fastq_df
+WT &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="st">&quot;WT&quot;</span>,<span class="dv">51</span>)
+SNF2 &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="st">&quot;SNF2&quot;</span>,<span class="dv">51</span>)
+type &lt;-<span class="st"> </span><span class="kw">c</span>(WT,WT,SNF2,SNF2)
+dat$type &lt;-<span class="st"> </span>type
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">#Base</span><span class="st">`</span>, <span class="dt">y =</span> Mean)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> sample))
+<span class="kw">library</span>(patchwork)
+p1 &lt;-<span class="st"> </span>p +<span class="st"> </span><span class="kw">facet_grid</span>(. ~<span class="st"> </span>type) +<span class="st"> </span><span class="kw">ylim</span>(<span class="dv">0</span>,<span class="dv">41</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(p1)</code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

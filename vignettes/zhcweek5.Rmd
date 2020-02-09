@@ -1,0 +1,66 @@
+---
+title: "zhcweek5"
+author: "Zhuoyang Chen"
+date: "February 7, 2020"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{zhcweek5}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##This package is a practice of ANGDS Week5 assignment  
+There is only one function **reading_in** in this package.
+
+### Reading in  
+Function for parsing the text output of FastQC. It extracts the values for a specific test run by FastQC on asingle fastq file.
+####usage  
+reading_in(file=<fastq_data.txt>, sample = <phenotype/accession#>, test = <test_type>)
+
+####arguments  
+#####Input:  
+file: string that specifies the path to an individual FastQC result file (tyically named "fastqc_data.txt)
+sample: A sample name that would be specified by user
+test: Indicate which test results should be extracted. Default: "Per base sequence quality". Other options are, for example, "Pertile sequence quality", "Per sequence quality score" etc.
+
+#####output:  
+dat: data.frame with the values of a single FastQC test result.
+
+####examples  
+res <- reading_in(file =
+"acinar-3_S9_L001_R1_001_fastqc/fastqc_data.txt")
+
+#### Code Explanation
+**syscommand** is to generate the command that used by your computer system to pre-process the data file you provide.
+
+#####paste0
+Paste string without any sapce.
+
+#####sed
+The first section before '|' is to select a range of lines according to given patterns. In the code, it select lines from the line that contains "Per base sequence quality" to the line that first meets "END_MODULE". Then the section after '|' is to remove lines that start with symbol ">>", which are actually the first and the last line.
+
+###ggplot2 on data df
+```{r ggplot}
+getwd()
+#install.packages("../zhcweek5.tar.gz")
+#use zhcweek5::df
+library(zhcweek5)
+library(ggplot2)
+dat <- fastq_df
+WT <- rep("WT",51)
+SNF2 <- rep("SNF2",51)
+type <- c(WT,WT,SNF2,SNF2)
+dat$type <- type
+p <- ggplot(dat, aes(x = `#Base`, y = Mean)) + geom_point(aes(color = sample))
+library(patchwork)
+p1 <- p + facet_grid(. ~ type) + ylim(0,41)
+```
+
+```{r, fig.width=7,fig.height=4}
+print(p1)
+```
+

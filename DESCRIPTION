@@ -1,0 +1,19 @@
+Package: zhcweek5
+Type: Package
+Title: Extract the values for a specific test run by FastQC on a single fastq file
+Version: 0.1.0
+Author: Zhuoyang Chen
+Maintainer: Zhuoyang Chen <zhc4002@med.cornell.edu>
+Description: You can specify the test result you want to extract such as
+  "Per base sequence quality", "Per sequence quality score" etc.
+License: Artistic-2.0
+Encoding: UTF-8
+LazyData: true
+VignetteBuilder: knitr
+RoxygenNote: 7.0.2
+Imports:
+  data.table, 
+  magrittr
+Suggests:
+  knitr,
+  rmarkdown
